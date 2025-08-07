@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InterfaceDemo.VatCalculatorV1\InterfaceDemo.VatCalculatorV1.csproj" />
+    <ProjectReference Include="..\InterfaceDemo.VatCalculatorV2\InterfaceDemo.VatCalculatorV2.csproj" />
+    <ProjectReference Include="..\InterfaceDemo.VatCalculatorV3\InterfaceDemo.VatCalculatorV3.csproj" />
+    <ProjectReference Include="..\InterfaceDemo.VatCalculatorV4\InterfaceDemo.VatCalculatorV4.csproj" />
+  </ItemGroup>
+
+</Project>
