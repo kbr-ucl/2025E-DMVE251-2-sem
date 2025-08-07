@@ -15,15 +15,22 @@ var vatCalculatorISP = new InterfaceDemo.VatCalculatorV3.Vat25Calculator() as In
 Console.WriteLine($"Interface Segregation Principle: {vatCalculatorISP.CalculateVat(amount)}");
 
 // Dependency Inversion Principle
-var vatCalculatorDIP = new InterfaceDemo.VatCalculatorV4.Vat25Calculator(Factory.CreateCalculator()) as InterfaceDemo.VatCalculatorV4.IVatCalculator; ;
+var vatCalculatorDIP = Factory.CreateVatCalculator();
 Console.WriteLine($"Dependency Inversion Principle: {vatCalculatorDIP.CalculateVat(amount)}");
 
 
-
+/// <summary>
+/// IoC factory creating instances of implementations.
+/// </summary>
 public class Factory
 {
     public static InterfaceDemo.VatCalculatorV4.ICalculator CreateCalculator()
     {
         return new InterfaceDemo.VatCalculatorV4.Calculator();
+    }
+
+    public static InterfaceDemo.VatCalculatorV4.IVatCalculator CreateVatCalculator()
+    {
+        return new InterfaceDemo.VatCalculatorV4.Vat25Calculator(CreateCalculator());
     }
 }
