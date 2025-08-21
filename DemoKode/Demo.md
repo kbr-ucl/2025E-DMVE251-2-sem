@@ -36,3 +36,17 @@ The main program sets up the DI container and demonstrates VAT calculation.
 
 
 
+## Maler
+
+Demo kode fra undervisningen d. 21/8 -2025
+
+
+
+## PriceCalculator
+
+Vejledende løsning til opgaven: [01 - 01 - OOP - 1-sem repetition opgave - Forberedelse](https://ucl.itslearning.com/ContentArea/ContentArea.aspx?LocationType=1&LocationID=22186)
+
+En bedre løsning udarbejdet af Dennis: [Link](https://github.com/DennisJohnsenUCL/PriceCalculator)
+
+
+
