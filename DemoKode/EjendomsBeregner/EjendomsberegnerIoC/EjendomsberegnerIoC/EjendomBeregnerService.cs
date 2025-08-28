@@ -1,13 +1,16 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿namespace EjendomsberegnerIoC;
 
-namespace EjendomsberegnerConsoleAppAfter;
+public interface IEjendomBeregnerService
+{
+    double BeregnKvadratmeter();
+}
+
 /// <summary>
 /// Kan funktionaliteten opdeles således koden bliver mere funktionel "ren" (en metode ét ansvar)?
 ///  Er der et skjult model objekt i opgaven?
 ///  Hvad skal retur typen for adapteren være?
 /// </summary>
-public class EjendomBeregnerService
+public class EjendomBeregnerService: IEjendomBeregnerService
 {
 
     private ILejemaalRepository _repo;
@@ -30,7 +33,7 @@ public class EjendomBeregnerService
     ///     Filen med lejemål er med i projektet og hedder "LejemaalData.csv"
     /// </summary>
     /// <returns></returns>
-    public double BeregnKvadratmeter()
+    double IEjendomBeregnerService.BeregnKvadratmeter()
     {
         var lejemaalene = _repo.HentLejemaal();
         double kvadratmeter = 0.0;
@@ -67,7 +70,6 @@ public class EjendomBeregnerService
         {
             Console.WriteLine();
         }
-
         public string DataFileName { get; set; } = "LejemaalData.csv";
         List<Lejemaal> ILejemaalRepository.HentLejemaal()
         {
