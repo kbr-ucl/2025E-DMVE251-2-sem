@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Infrastructor", "Bo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.CrossCut", "Booking.CrossCut\Booking.CrossCut.csproj", "{27CA27E6-4E42-4EE4-922F-770E0B697113}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.ConsoleUI", "Booking.ConsoleUI\Booking.ConsoleUI.csproj", "{D77EEC29-9395-4229-89DC-0952ED876DE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{27CA27E6-4E42-4EE4-922F-770E0B697113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27CA27E6-4E42-4EE4-922F-770E0B697113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27CA27E6-4E42-4EE4-922F-770E0B697113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D77EEC29-9395-4229-89DC-0952ED876DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D77EEC29-9395-4229-89DC-0952ED876DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D77EEC29-9395-4229-89DC-0952ED876DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D77EEC29-9395-4229-89DC-0952ED876DE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
