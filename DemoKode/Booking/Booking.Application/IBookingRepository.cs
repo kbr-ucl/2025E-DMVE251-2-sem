@@ -2,6 +2,6 @@
 
 public interface IBookingRepository
 {
-    Domain.Entity.Booking GetBooking();
+    Domain.Entity.Booking GetBooking(int id);
     void SaveBooking(Domain.Entity.Booking booking);
 }

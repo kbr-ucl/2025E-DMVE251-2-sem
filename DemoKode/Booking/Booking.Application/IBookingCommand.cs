@@ -2,5 +2,5 @@
 
 public interface IBookingCommand
 {
-    void UpdateStartTid(DateTime startTid);
+    void UpdateStartTid(int id, DateTime startTid);
 }

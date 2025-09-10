@@ -9,10 +9,10 @@ public class BookingCommandHandler : IBookingCommand
         _repo = repo;
     }
 
-    void IBookingCommand.UpdateStartTid(DateTime startTid)
+    void IBookingCommand.UpdateStartTid(int id, DateTime startTid)
     {
         // Load
-        var booking = _repo.GetBooking();
+        var booking = _repo.GetBooking(id);
 
         // Do
         booking.UpdateStartSlut(startTid, booking.SlutTid);

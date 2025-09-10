@@ -1,13 +1,14 @@
 ﻿using Booking.Domain.DomainService;
-
 namespace Booking.Domain.Entity;
-
-public class Booking
+public class Booking : EntityBase
 {
     private IBookingOverlapCheck _overlapCheck;
     public DateTime StartTid { get; private set; }
     public DateTime SlutTid { get; private set; }
     public Kunde Kunde { get; private set; }
+
+    // EF Only
+    protected Booking() { }
 
     public Booking(DateTime start, DateTime slut, Kunde kunde, IServiceProvider serviceProvider)
     {
