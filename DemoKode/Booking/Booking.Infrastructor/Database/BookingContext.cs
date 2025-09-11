@@ -21,13 +21,13 @@ public class BookingContext : DbContext
         "TrustServerCertificate=True";
 
 
+    // Define DbSets for your entities here
+    public DbSet<Entity.Kunde> Kunder { get; set; }
+    public DbSet<Entity.Booking> Bookinger { get; set; }
+
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(ConnectionString);
     }
-
-
-    // Define DbSets for your entities here
-    public DbSet<Entity.Kunde> Kunder { get; set; }
-    public DbSet<Entity.Booking> Bookinger { get; set; }
 }
