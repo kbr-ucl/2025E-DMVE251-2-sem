@@ -1,4 +1,6 @@
-﻿namespace Booking.Application;
+﻿using Boooking.Port.Driving;
+
+namespace Booking.Application;
 
 public class BookingCommandHandler : IBookingCommand
 {
@@ -9,13 +11,13 @@ public class BookingCommandHandler : IBookingCommand
         _repo = repo;
     }
 
-    void IBookingCommand.UpdateStartTid(int id, DateTime startTid)
+    void IBookingCommand.UpdateStartTid(UpdateStartTidCommand command)
     {
         // Load
-        var booking = _repo.GetBooking(id);
+        var booking = _repo.GetBooking(command.Id);
 
         // Do
-        booking.UpdateStartSlut(startTid, booking.SlutTid);
+        booking.UpdateStartSlut(command.StartTid, booking.SlutTid);
 
         // Save
         _repo.SaveBooking(booking);

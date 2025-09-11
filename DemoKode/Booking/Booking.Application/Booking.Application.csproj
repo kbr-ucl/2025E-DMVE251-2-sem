@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Booking.Domain\Booking.Domain.csproj" />
+    <ProjectReference Include="..\Boooking.Port.Driving\Boooking.Port.Driving.csproj" /> <!--Ny reference til port-->
   </ItemGroup>
 
 </Project>

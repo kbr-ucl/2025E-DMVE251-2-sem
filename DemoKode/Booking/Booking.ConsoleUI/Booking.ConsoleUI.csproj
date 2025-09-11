@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Booking.Application\Booking.Application.csproj" />
     <ProjectReference Include="..\Booking.CrossCut\Booking.CrossCut.csproj" />
+    <ProjectReference Include="..\Boooking.Port.Driving\Boooking.Port.Driving.csproj" /> <!--Ny reference til port-->
   </ItemGroup>
 
 </Project>

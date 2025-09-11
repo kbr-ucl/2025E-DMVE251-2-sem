@@ -2,6 +2,7 @@
 using Booking.Domain.DomainService;
 using Booking.Infrastructor;
 using Booking.Infrastructor.Database;
+using Boooking.Port.Driving;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Booking.CrossCut;
