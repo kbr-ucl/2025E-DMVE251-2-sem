@@ -11,3 +11,4 @@ public interface IBookingQuery
 }
 
 public record BookingDto(int KundeId, int BookingId, DateTime StartTid, DateTime SlutTid);
+public record GetAllByKundeRequest(int KundeId);

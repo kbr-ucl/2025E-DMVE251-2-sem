@@ -1,4 +1,5 @@
 ﻿using Booking.Application;
+using Booking.Domain.Exceptions;
 using Booking.Infrastructor.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,10 +9,7 @@ public class BookingRepository : IBookingRepository
 {
     private readonly BookingContext _db;
 
-    public BookingRepository(BookingContext db)
-    {
-        _db = db;
-    }
+    public BookingRepository(BookingContext db) => _db = db;
 
     void IBookingRepository.AddBooking(Domain.Entity.Booking booking)
     {
@@ -21,11 +19,16 @@ public class BookingRepository : IBookingRepository
 
     Domain.Entity.Booking IBookingRepository.GetBooking(int id)
     {
-        return _db.Bookinger.Include(b => b.Kunde).First(b => b.Id == id) ?? throw new Exception("Booking not found");
+        var entity = _db.Bookinger
+            .Include(b => b.Kunde)
+            .FirstOrDefault(b => b.Id == id);
+
+        return entity ?? throw new NotFoundException($"Booking with id {id} was not found.");
     }
 
     void IBookingRepository.SaveBooking(Domain.Entity.Booking booking)
     {
+        // Entity is tracked; save pending changes.
         _db.SaveChanges();
     }
 }
