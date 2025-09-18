@@ -25,12 +25,8 @@ public class BookingCommandHandler : IBookingCommand
         // Load
         var kunde = _kundeRepository.Get(command.KundeId);
 
-        // Validate business rule (no overlap)
-        if (_overlapCheck.HasOverlap(kunde.Id, command.StartTid, command.SlutTid))
-            throw new ValidationException("The booking overlaps an existing booking.");
-
         // Do
-        var booking = new Domain.Entity.Booking(command.StartTid, command.SlutTid, kunde);
+        var booking = new Domain.Entity.Booking(command.StartTid, command.SlutTid, kunde, _overlapCheck);
 
         // Save
         _repo.AddBooking(booking);
@@ -43,12 +39,8 @@ public class BookingCommandHandler : IBookingCommand
         if (command.KundeId != booking.Kunde.Id)
             throw new OwnershipException("Booking does not belong to the specified customer.");
 
-        // Validate business rule (no overlap)
-        if (_overlapCheck.HasOverlap(command.KundeId, command.StartTid, command.SlutTid, command.BookingId))
-            throw new ValidationException("The booking overlaps an existing booking.");
-
         // Do
-        booking.UpdateStartSlut(command.StartTid, command.SlutTid);
+        booking.UpdateStartSlut(command.StartTid, command.SlutTid, _overlapCheck);
 
         // Save
         _repo.SaveBooking(booking);

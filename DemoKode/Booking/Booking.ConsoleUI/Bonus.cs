@@ -12,6 +12,7 @@ public class Bonus
     {
         using var scope = serviceProvider.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<BookingContext>();
+        var overlapCheck = scope.ServiceProvider.GetRequiredService<Booking.Domain.DomainService.IBookingOverlapCheck>();
 
         db.Database.EnsureCreated();
 
@@ -27,7 +28,7 @@ public class Bonus
         if (!db.Bookinger.Any())
         {
             // Seed with a non-overlapping booking
-            db.Bookinger.Add(new Domain.Entity.Booking(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2), kunde));
+            db.Bookinger.Add(new Domain.Entity.Booking(DateTime.Now.AddHours(1), DateTime.Now.AddHours(2), kunde, overlapCheck));
             db.SaveChanges();
         }
     }
