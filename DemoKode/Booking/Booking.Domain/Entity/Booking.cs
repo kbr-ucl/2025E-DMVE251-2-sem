@@ -5,19 +5,19 @@ namespace Booking.Domain.Entity;
 
 public class Booking : EntityBase
 {
-    public DateTime StartTid { get; private set; }
-    public DateTime SlutTid { get; private set; }
-    public Kunde Kunde { get; }
+    public DateTime StartTid { get; protected set; }
+    public DateTime SlutTid { get; protected set; }
+    public Kunde Kunde { get; protected set; }
 
     // EF Only
     protected Booking()
     {
     }
 
-    public Booking(DateTime start, DateTime slut, Kunde kunde, IBookingOverlapCheck overlapCheck)
+    public Booking(DateTime start, DateTime slut, Kunde kunde, IBookingOverlapCheck overlapCheck, ICurrentDateTime now)
     {
         if (kunde is null) throw new ArgumentNullException(nameof(kunde));
-        ValidateTimes(start, slut);
+        ValidateTimes(start, slut, now);
         OverlapCheck(overlapCheck, kunde.Id, start, slut);
 
         Kunde = kunde;
@@ -33,19 +33,19 @@ public class Booking : EntityBase
             throw new ValidationException("The booking overlaps an existing booking.");
     }
 
-    public void UpdateStartSlut(DateTime start, DateTime slut, IBookingOverlapCheck overlapCheck)
+    public void UpdateStartSlut(DateTime start, DateTime slut, IBookingOverlapCheck overlapCheck, ICurrentDateTime now)
     {
-        ValidateTimes(start, slut);
+        ValidateTimes(start, slut, now);
         OverlapCheck(overlapCheck, Kunde.Id, start, slut, Id);
         StartTid = start;
         SlutTid = slut;
     }
 
-    private static void ValidateTimes(DateTime start, DateTime slut)
+    private static void ValidateTimes(DateTime start, DateTime slut, ICurrentDateTime now)
     {
         if (start >= slut)
             throw new ValidationException("Start time must be before end time.");
-        if (start <= DateTime.Now)
+        if (start <= now.Now())
             throw new ValidationException("Start time must be in the future.");
     }
 }

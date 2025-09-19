@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11012.119 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Domain", "Booking.Domain\Booking.Domain.csproj", "{A3CFA8D5-54FB-46DE-AF6A-71A07C31FC89}"
 EndProject
@@ -17,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.ConsoleUI", "Booking.ConsoleUI\Booking.ConsoleUI.csproj", "{D77EEC29-9395-4229-89DC-0952ED876DE9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boooking.Port.Driving", "Boooking.Port.Driving\Boooking.Port.Driving.csproj", "{04ED3733-66DE-44C8-AAB7-576B29DAB605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Domain.Test", "Booking.Domain.Test\Booking.Domain.Test.csproj", "{3EA4D955-5682-43CE-8214-BA781311FE0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,10 @@ Global
 		{04ED3733-66DE-44C8-AAB7-576B29DAB605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04ED3733-66DE-44C8-AAB7-576B29DAB605}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04ED3733-66DE-44C8-AAB7-576B29DAB605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA4D955-5682-43CE-8214-BA781311FE0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA4D955-5682-43CE-8214-BA781311FE0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA4D955-5682-43CE-8214-BA781311FE0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA4D955-5682-43CE-8214-BA781311FE0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
