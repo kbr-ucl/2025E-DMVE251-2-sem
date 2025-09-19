@@ -16,6 +16,31 @@ public class UpdateStartSlutTests
     public void Given__StartTid_GT_SlutTid__Then__Throw__ValidationException(string startStr,
         string slutStr, string nowStr)
     {
+        // Arrange
+
+        var start = DateTime.Parse(startStr);
+        var slut = DateTime.Parse(slutStr);
+        var nowDateTime = DateTime.Parse(nowStr);
+
+        var bookingOverlapCheckMock = new Mock<IBookingOverlapCheck>();
+        // https://stackoverflow.com/questions/7827053/moq-mock-method-with-out-specifying-input-parameter
+        bookingOverlapCheckMock
+            .Setup(s => s.HasOverlap(It.IsAny<int>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<int?>()))
+            .Returns(false);
+
+        var nowMock = new Mock<ICurrentDateTime>();
+        nowMock.Setup(t => t.Now()).Returns(nowDateTime);
+
+        var booking = new BookingTestFixture();
+        booking.Kunde = new Kunde();
+
+        var sut = booking as Entity.Booking;
+
+        // Act & Assert
+        Assert.Throws<ValidationException>(() => sut.UpdateStartSlut(start,
+            slut,
+            bookingOverlapCheckMock.Object,
+            nowMock.Object));
     }
 
 
