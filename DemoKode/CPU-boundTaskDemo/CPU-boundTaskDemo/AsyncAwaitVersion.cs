@@ -2,7 +2,7 @@
 
 internal class AsyncAwaitVersion
 {
-    public async void CalculatePrimenumbers(int maxNumber)
+    public async Task CalculatePrimenumbers(int maxNumber)
     {
         Console.WriteLine($"Async-Await Version - Calculating Prime numbers! - in the range 0 - {maxNumber}");
 
