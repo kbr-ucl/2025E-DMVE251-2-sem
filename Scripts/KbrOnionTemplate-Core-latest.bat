@@ -15,6 +15,7 @@ dotnet new blazor -au None -o %app%.WebUi
 dotnet new classlib -o %app%.Application
 dotnet new classlib -o %app%.Domain
 dotnet new nunit -o %app%.Domain.Test
+dotnet new classlib -o %app%.Infrastructure
 
 dotnet add %app%.WebUi reference %app%.Application
 dotnet add %app%.WebUi reference %app%.Domain
@@ -37,7 +38,7 @@ dotnet add %app%.WebUi/%app%.WebUi.csproj package Microsoft.EntityFrameworkCore.
 
 dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.EntityFrameworkCore
 dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.EntityFrameworkCore.SqlServer
-dotnet add %app%.Infrastructure/%app%.Infrastructure..csproj package Microsoft.EntityFrameworkCore.Tools
+dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.EntityFrameworkCore.Tools
 
 
 dotnet add %app%.Domain.Test/%app%.Domain.Test.csproj package Moq
