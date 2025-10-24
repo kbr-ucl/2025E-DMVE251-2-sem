@@ -35,10 +35,18 @@ dotnet sln %app%.sln add %app%.Infrastructure/%app%.Infrastructure.csproj
 dotnet add %app%.WebUi/%app%.WebUi.csproj package Microsoft.EntityFrameworkCore
 dotnet add %app%.WebUi/%app%.WebUi.csproj package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add %app%.WebUi/%app%.WebUi.csproj package Microsoft.EntityFrameworkCore.Tools
+dotnet add %app%.WebUi/%app%.WebUi.csproj package Microsoft.EntityFrameworkCore.Design
+dotnet add %app%.WebUi/%app%.WebUi.csproj package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add %app%.WebUi/%app%.WebUi.csproj package Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter
+
+dotnet add %app%.Application/%app%.Application.csproj package Microsoft.Extensions.DependencyInjection
+dotnet add %app%.Application/%app%.Application.csproj package Microsoft.Extensions.Configuration.Abstractions
 
 dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.EntityFrameworkCore
 dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.EntityFrameworkCore.Tools
+dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.Extensions.DependencyInjection
+dotnet add %app%.Infrastructure/%app%.Infrastructure.csproj package Microsoft.Extensions.Configuration.Abstractions
 
 
 dotnet add %app%.Domain.Test/%app%.Domain.Test.csproj package Moq
