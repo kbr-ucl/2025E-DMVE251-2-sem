@@ -109,3 +109,9 @@ jobs:
     
     - name: Build EjendomsberegnerIoC
       run: dotnet build DemoKode/EjendomsBeregner/EjendomsberegnerIoC/Ejendomsberegner.sln --no-restore
+    
+    - name: Restore dependencies for KompositionOverArvDemo
+      run: dotnet restore DemoKode/KompositionOverArvDemo/KompositionOverArvDemo.csproj
+    
+    - name: Build KompositionOverArvDemo
+      run: dotnet build DemoKode/KompositionOverArvDemo/KompositionOverArvDemo.csproj --no-restore
