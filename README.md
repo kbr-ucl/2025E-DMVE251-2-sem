@@ -5,7 +5,7 @@ Dette repository indeholder undervisningsmaterialer, demo kode og scripts til ku
 ## 📚 Indhold
 
 - [Demo Kode](#-demo-kode)
-- [Scripts](#-scripts)
+- [Scripts](#️-scripts)
 - [Forudsætninger](#-forudsætninger)
 - [Kom i gang](#-kom-i-gang)
 - [Licens](#-licens)
