@@ -1,0 +1,50 @@
+@EfValueObjectAsJson.DemoApi_HostAddress = http://localhost:5167
+
+GET {{EfValueObjectAsJson.DemoApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+### Create Item
+POST {{EfValueObjectAsJson.DemoApi_HostAddress}}/items
+Content-Type: application/json
+
+{
+  "name": "Sample Item",
+  "price": 9.99
+}
+
+###
+
+### Get created item (replace 1 with returned id)
+GET {{EfValueObjectAsJson.DemoApi_HostAddress}}/items/1
+Accept: application/json
+
+###
+
+### Create Order
+POST {{EfValueObjectAsJson.DemoApi_HostAddress}}/orders
+Content-Type: application/json
+
+{
+  "customer": {
+    "name": "John Doe"
+  },
+  "items": [
+    {
+      "item": {
+        "name": "Sample Item",
+        "price": 9.99
+      },
+      "quantity": 2
+    }
+  ]
+}
+
+###
+
+### Get created order (replace 1 with returned id)
+GET {{EfValueObjectAsJson.DemoApi_HostAddress}}/orders/1
+Accept: application/json
+
+###
