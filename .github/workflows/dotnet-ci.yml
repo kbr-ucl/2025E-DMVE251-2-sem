@@ -1,0 +1,120 @@
+name: .NET CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+    
+    strategy:
+      matrix:
+        dotnet-version: ['8.0.x', '9.0.x']
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+    
+    - name: Restore dependencies for InterfaceDemo
+      run: dotnet restore DemoKode/InterfaceDemo/InterfaceDemo.sln
+    
+    - name: Build InterfaceDemo
+      run: dotnet build DemoKode/InterfaceDemo/InterfaceDemo.sln --no-restore
+    
+    - name: Restore dependencies for Booking
+      run: dotnet restore DemoKode/Booking/Booking.sln
+    
+    - name: Build Booking
+      run: dotnet build DemoKode/Booking/Booking.sln --no-restore
+    
+    - name: Test Booking
+      run: dotnet test DemoKode/Booking/Booking.sln --no-build --verbosity normal
+    
+    - name: Restore dependencies for DecoratorDemo
+      run: dotnet restore DemoKode/DecoratorDemo/DecoratorDemo.sln
+    
+    - name: Build DecoratorDemo
+      run: dotnet build DemoKode/DecoratorDemo/DecoratorDemo.sln --no-restore
+    
+    - name: Restore dependencies for IoCdemo
+      run: dotnet restore DemoKode/IoCdemo/IoCdemo.sln
+    
+    - name: Build IoCdemo
+      run: dotnet build DemoKode/IoCdemo/IoCdemo.sln --no-restore
+    
+    - name: Restore dependencies for IndkapslingDemo
+      run: dotnet restore DemoKode/IndkapslingDemo/IndkapslingDemo.sln
+    
+    - name: Build IndkapslingDemo
+      run: dotnet build DemoKode/IndkapslingDemo/IndkapslingDemo.sln --no-restore
+    
+    - name: Restore dependencies for DiningPhilosophers
+      run: dotnet restore DemoKode/DiningPhilosophers/DiningPhilosophers.sln
+    
+    - name: Build DiningPhilosophers
+      run: dotnet build DemoKode/DiningPhilosophers/DiningPhilosophers.sln --no-restore
+    
+    - name: Restore dependencies for PriceCalculator
+      run: dotnet restore DemoKode/PriceCalculator/PriceCalculator.sln
+    
+    - name: Build PriceCalculator
+      run: dotnet build DemoKode/PriceCalculator/PriceCalculator.sln --no-restore
+    
+    - name: Restore dependencies for EntityframeworkConsoleApp
+      run: dotnet restore DemoKode/EntityframeworkConsoleApp/EntityframeworkConsoleApp.sln
+    
+    - name: Build EntityframeworkConsoleApp
+      run: dotnet build DemoKode/EntityframeworkConsoleApp/EntityframeworkConsoleApp.sln --no-restore
+    
+    - name: Restore dependencies for Maler
+      run: dotnet restore DemoKode/Maler/Maler.sln
+    
+    - name: Build Maler
+      run: dotnet build DemoKode/Maler/Maler.sln --no-restore
+    
+    - name: Restore dependencies for AdapterDemoAfter
+      run: dotnet restore DemoKode/AdapterDemo/AdapterDemoAfter/AdapterDemoAfter.sln
+    
+    - name: Build AdapterDemoAfter
+      run: dotnet build DemoKode/AdapterDemo/AdapterDemoAfter/AdapterDemoAfter.sln --no-restore
+    
+    - name: Restore dependencies for AdapterDemoBefore
+      run: dotnet restore DemoKode/AdapterDemo/AdapterDemoBefore/AdapterDemoBefore.sln
+    
+    - name: Build AdapterDemoBefore
+      run: dotnet build DemoKode/AdapterDemo/AdapterDemoBefore/AdapterDemoBefore.sln --no-restore
+    
+    - name: Restore dependencies for EjendomsberegnerBefore
+      run: dotnet restore DemoKode/EjendomsBeregner/EjendomsberegnerBefore/Ejendomsberegner.sln
+    
+    - name: Build EjendomsberegnerBefore
+      run: dotnet build DemoKode/EjendomsBeregner/EjendomsberegnerBefore/Ejendomsberegner.sln --no-restore
+    
+    - name: Restore dependencies for EjendomsberegnerAfter
+      run: dotnet restore DemoKode/EjendomsBeregner/EjendomsberegnerAfter/Ejendomsberegner.sln
+    
+    - name: Build EjendomsberegnerAfter
+      run: dotnet build DemoKode/EjendomsBeregner/EjendomsberegnerAfter/Ejendomsberegner.sln --no-restore
+    
+    - name: Restore dependencies for EjendomsberegnerIoC
+      run: dotnet restore DemoKode/EjendomsBeregner/EjendomsberegnerIoC/Ejendomsberegner.sln
+    
+    - name: Build EjendomsberegnerIoC
+      run: dotnet build DemoKode/EjendomsBeregner/EjendomsberegnerIoC/Ejendomsberegner.sln --no-restore
+    
+    - name: Restore dependencies for KompositionOverArvDemo
+      run: dotnet restore DemoKode/KompositionOverArvDemo/KompositionOverArvDemo.csproj
+    
+    - name: Build KompositionOverArvDemo
+      run: dotnet build DemoKode/KompositionOverArvDemo/KompositionOverArvDemo.csproj --no-restore

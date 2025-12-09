@@ -1,5 +1,7 @@
 # DMVE251 - 2. Semester
 
+[![.NET CI](https://github.com/kbr-ucl/2025E-DMVE251-2-sem/actions/workflows/dotnet-ci.yml/badge.svg)](https://github.com/kbr-ucl/2025E-DMVE251-2-sem/actions/workflows/dotnet-ci.yml)
+
 Dette repository indeholder undervisningsmaterialer, demo kode og scripts til kurset DMVE251 2. semester på UCL (University College).
 
 ## 📚 Indhold
